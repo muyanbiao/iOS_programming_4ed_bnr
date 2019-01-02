@@ -28,4 +28,4 @@
 		2. UIBezierPath:参见项目代码
 		3. NSString:```[logoString drawInRect:<#(CGRect)#> withAttributes:<#(nullable NSDictionary<NSAttributedStringKey,id> *)#>];```
 
-### BNRHypnosisView.m为UIView的子类，自定义绘图的实现代码都在该文件中
+### [BNRHypnosisView.m](https://github.com/muyanbiao/iOS_programming_4ed_bnr/blob/master/Hypnosister/Hypnosister/BNRHypnosisView.m)为UIView的子类，自定义绘图的实现代码都在该文件中
