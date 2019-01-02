@@ -126,6 +126,9 @@
     UIImage *logoImage = [UIImage imageNamed:@"logoLinear"];
     [logoImage drawInRect:imgRect];
     
+//    NSString *logoString = @"";
+//    [logoString drawInRect:<#(CGRect)#> withAttributes:<#(nullable NSDictionary<NSAttributedStringKey,id> *)#>];
+    
     CGContextRestoreGState(currentContext); // 恢复没有阴影效果的状态，后面绘制的图像没有阴影效果了
 
 }
