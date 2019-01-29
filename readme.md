@@ -4,11 +4,11 @@
 2. Objective-C
 3. 通过ARC管理内存  
   
-Hypnosister . 
-4. 视图与视图层次结构
-5. 视图：重绘与UIScrollView . 
+Hypnosister  
+4. 视图与视图层次结构  
+5. 视图：重绘与UIScrollView  
   
-HypnoNerd . 
+HypnoNerd  
 6. 视图控制器
-
+  
 7. 委托与文本输入
