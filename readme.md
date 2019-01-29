@@ -2,13 +2,8 @@
 ### 章节目录
 1. 第一个简单的iOS应用
 2. Objective-C
-3. 通过ARC管理内存  
-  
-  Hypnosister  
-  4. 视图与视图层次结构  
-  5. 视图：重绘与UIScrollView  
-  
-  HypnoNerd  
-  6. 视图控制器
-  
+3. 通过ARC管理内存
+4. 视图与视图层次结构 - Hypnosister
+5. 视图：重绘与UIScrollView - Hypnosister
+6. 视图控制器 - HypnoNerd
 7. 委托与文本输入
