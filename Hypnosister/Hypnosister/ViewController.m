@@ -45,6 +45,7 @@
     BNRHypnosisView *anotherView = [[BNRHypnosisView alloc] initWithFrame:screenRect];
     [scrollView addSubview:anotherView];
     [scrollView setPagingEnabled:YES];
+    [scrollView setPagingEnabled:NO];
     scrollView.contentSize = bigRect.size;
     
 }

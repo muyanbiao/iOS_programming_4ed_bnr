@@ -16,6 +16,10 @@
 
 @implementation BNRHypnosisView
 
+- (void)updateCirclrColor:(UIColor *)color {
+    [self setCircleColor:color];
+}
+
 - (void) setCircleColor:(UIColor *)circleColor {
     _circleColor = circleColor;
     [self setNeedsDisplay];
