@@ -11,18 +11,18 @@
 			2. 按住Control键，点击File’s Owner属性，从列表中点击+号关联视图
 3. UITabBarController的使用
 	1. 创建
-	`
+	```
 	UITabBarController *tabBarController =  [[UITabBarController alloc] init];
 	tabBarController.viewControllers = @[vc1, vc2];
 	self.window.rootViewController = tabBarController;
-	`
+	```
 	2. 修改tabBarItem的tile和image属性，定制底部标题和图片
 		*. 在子ViewController的initWithNibName方法中，定制title和image
-		`
+		```
 		UITabBarItem *tabBarItem = self.tabBarItem;
 		tabBarItem.title = @"title1";
 		tabBarItem.iamge = [UIImage imageNamed:@"image1"];
-		`
+		```
 
 4. 不要在initWithNibName或者init方法中使用self.view对象，应为此时view还没有初始化完成，此时使用会出现崩溃，在`ViewWillAppear或者ViewDidAppear`中设置视图对象(UIDatePicker，UIButton…)
 5. `ViewDidLoad`只在创建`ViewController`时调用一次，`ViewWillAppear和ViewDidAppear`在每次ViewController中的视图将要显示到屏幕上时调用
