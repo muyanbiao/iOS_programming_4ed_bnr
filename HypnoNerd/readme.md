@@ -16,8 +16,8 @@
 	tabBarController.viewControllers = @[vc1, vc2];
 	self.window.rootViewController = tabBarController;
 	```
-	2. 修改tabBarItem的tile和image属性，定制底部标题和图片
-		*. 在子ViewController的initWithNibName方法中，定制title和image
+	2. 修改tabBarItem的tile和image属性，定制底部标题和图片  
+		* 在子ViewController的initWithNibName方法中，定制title和image
 		```
 		UITabBarItem *tabBarItem = self.tabBarItem;
 		tabBarItem.title = @"title1";
@@ -30,5 +30,5 @@
 	1. 某VC定义了clock插座变量，指向一个表示时钟的视图，同时，它(表示时钟的视图)还作为一个按钮的目标，为其定义了动作方法setClock:。该方法用于获取网络最新时间并更新始终视图，方法声明如下：
 	`- (IBAction)setClock:(id)sender;`
 	这样就会产生一个奇怪的问题：当NIB文件被加载时，该方法会立即执行，同时也无法正确设置clock插座变		量。原因是：
-		* 	系统会使用`setClock:`动作方法设置clock - 系统会将`setClock:`视为clock的存方法。
+		* 系统会使用`setClock:`动作方法设置clock - 系统会将`setClock:`视为clock的存方法。
 	2. 简单总结上面的例子：动作方法的命名不要和插座变量/实例变量的存方法名称冲突
