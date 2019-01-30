@@ -1,6 +1,6 @@
 # iOS Programming 4ed 例题、练习代码实现
 ### 章节目录
-. 第一个简单的iOS应用
+1. 第一个简单的iOS应用
 2. Objective-C
 3. 通过ARC管理内存
 4. 视图与视图层次结构 - Hypnosister
