@@ -10,6 +10,10 @@
 #import "BNRHypnosisView.h"
 #import "UIImage+ImageFromColor.h"
 
+@interface BNRHypnosisViewController () <UITextFieldDelegate>
+
+@end
+
 @implementation BNRHypnosisViewController
 
 // MARK: VC的初始化方法
@@ -49,6 +53,13 @@
     
     [self.view addSubview:segControl];
     [segControl addTarget:nil action:@selector(selectSegItem:) forControlEvents:UIControlEventValueChanged];
+    
+    UIButton *btn = [[UIButton alloc] init];
+    [btn addTarget:self action:@selector(btnAction:) forControlEvents:UIControlEventTouchUpInside];
+    
+}
+
+- (void)btnAction:(UIButton *)sender {
     
 }
 
