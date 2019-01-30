@@ -12,5 +12,19 @@
 	5. 拖动与分页
 6. 视图控制器 - HypnoNerd
 7. 委托与文本输入
+	1. 文本框（UITextField）
+		* UIResponder
+		* 设置UITextField键盘
+	2. 委托（Delegation）
+	3. 协议（Protocols）
+	4. 向屏幕中添加UILabel对象
+	5. 运动效果（Motion Effects）
+	6. 使用调试器（Using the Debugger）
+		* 使用断点
+		* 单步执行代码
+		* 删除断点
+		* 设置异常断点
+	7. 深入学习：main()与UIApplication（For the More Curious: main() and UIApplication）
+	8. 中级练习：捏合-缩放（Silver Challenge：Pinch to Zoom）
 
 注：章节名称后面跟着的是赌赢的项目名，方便查阅
