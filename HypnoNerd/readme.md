@@ -1,38 +1,3 @@
-# 第6章 - 视图控制器
-1. 视图控制器的创建
-	1. init
-	2. initWithNibName
-		1. 只要xib的文件名和ViewController的文件名一致，使用ViewController的init方法，系统会自动寻找同名的xib文件进行关联，但切记要设置xib文件的class属性为ViewController的文件名
-2. 视图的创建
-	1. 纯代码创建
-	2. 通过Interface Builder创建 xib 文件
-		1. xib中的视图如何与ViewController关联？
-			1. xib的File’s Owner属性
-			2. 按住Control键，点击File’s Owner属性，从列表中点击+号关联视图
-3. UITabBarController的使用
-	1. 创建
-	```
-	UITabBarController *tabBarController =  [[UITabBarController alloc] init];
-	tabBarController.viewControllers = @[vc1, vc2];
-	self.window.rootViewController = tabBarController;
-	```
-	2. 修改tabBarItem的tile和image属性，定制底部标题和图片  
-		* 在子ViewController的initWithNibName方法中，定制title和image
-		```
-		UITabBarItem *tabBarItem = self.tabBarItem;
-		tabBarItem.title = @"title1";
-		tabBarItem.iamge = [UIImage imageNamed:@"image1"];
-		```
-
-4. 不要在initWithNibName或者init方法中使用self.view对象，应为此时view还没有初始化完成，此时使用会出现崩溃，在`ViewWillAppear或者ViewDidAppear`中设置视图对象(UIDatePicker，UIButton…)
-5. `ViewDidLoad`只在创建`ViewController`时调用一次，`ViewWillAppear和ViewDidAppear`在每次ViewController中的视图将要显示到屏幕上时调用
-6. 一定要遵循存取方法命名规范，其目的不仅仅是方便其他开发者阅读代码，系统也具有一套依赖于命名规范的工作机制，如果不遵守命名规范，很有可能会发生意外错误，比如：
-	1. 某VC定义了clock插座变量，指向一个表示时钟的视图，同时，它(表示时钟的视图)还作为一个按钮的目标，为其定义了动作方法setClock:。该方法用于获取网络最新时间并更新始终视图，方法声明如下：
-	`- (IBAction)setClock:(id)sender;`
-	这样就会产生一个奇怪的问题：当NIB文件被加载时，该方法会立即执行，同时也无法正确设置clock插座变量。原因是：
-		* 系统会使用`setClock:`动作方法设置clock - 系统会将`setClock:`视为clock的存方法。
-	2. 简单总结上面的例子：动作方法的命名不要和插座变量/实例变量的存方法名称冲突
-
 # 第7章 - 委托与文本输入(Delegation and Text Input)
 ### 概述
 1. 委托是Cocoa Touch中的一种[常见设计模式]
@@ -41,12 +6,12 @@
 ### 详细总结
 1. `UITextField` - `firstResponder(第一响应者)`
 	1. 创建`UITextField *textField = [[UITextField alloc] initWithFrame:CGRectMake(40,70,240,30)];`
-	2.  ::UIResponder:: - UIKit框架中的一个抽象类，`UIView、UIViewController、UIApplication`都是它的子类
+	2.  **UIResponder** - UIKit框架中的一个抽象类，`UIView、UIViewController、UIApplication`都是它的子类
 		1. `UIResponder`定义了一系列方法，用于接收和处理用户事件，例如触摸事件、运动事件（如摇晃设备）和功能控制事件（如编辑文本和播放音乐）等。`UIResponder`的子类会覆盖这些方法，实现自己的事件响应代码。
 		2. 触摸事件由被触摸的视图负责处理，系统会将触摸事件发送给被触摸的视图 - 参见第5章[触摸事件的处理](bear://x-callback-url/open-note?id=ED55DAB3-CA95-4815-AB73-3965FD0841AF-299-0000F5AAD8AD50A7)
-		3. 其他类型的事件则会由第一响应者(`firstResponder`)处理，`UIWindow`有一个`firstResponder`属性指向第一响应者。例如，当用户点击`UITextField`对象时，`UITextField`对象就会成为第一响应者。`UIWindow`会将`firstResponder`指向该对象，之后，如果应用接收到运动事件和功能控制事件，都会发送给`UITextField`对象(如图7-2)  
-![image](https://github.com/muyanbiao/iOS_programming_4ed_bnr/blob/master/Resources/firstResponder.png)  
-					图7-2  第一响应者				
+		3. 其他类型的事件则会由第一响应者(`firstResponder`)处理，`UIWindow`有一个`firstResponder`属性指向第一响应者。例如，当用户点击`UITextField`对象时，`UITextField`对象就会成为第一响应者。`UIWindow`会将`firstResponder`指向该对象，之后，如果应用接收到运动事件和功能控制事件，都会发送给`UITextField`对象(如图7-2)	
+					[image:5091BB0A-D694-4EF9-91E6-E5B0065A4DD2-299-00010103BFC73973/FFEA3395-EEB5-4EB7-84E4-26951FE8FEB1.png]
+											图7-2  第一响应者				
 		4. 当某个`UITextField`对象或`UITextView`对象成为第一响应者时，屏幕会弹出键盘。
 		5. 除了用户点击之外，还可以在代码中向`UITextField`对象发送`becomeFirstResponder`消息，使其成为第一响应者
 		6. 相反，如果要关闭键盘，则可以向`UITextField`对象发送`resignFirstResponder`，要求该对象放弃第一响应者身份。
@@ -63,75 +28,76 @@
 2. 委托（delegation）
 	1. UITextField对象有一个委托属性	`@property（nonatomatic, weak）UITextFieldDelegate *delegate;`，通过为UITextField对象设置委托，UITextField对象会在事件发生时向委托发送相应的信息，由委托处理该事件。
 		* 例如，对于编辑UITextField对象文本内容的事件，有如下两个对应的委托方法：
-```
-- (void)textFieldDidBeginEditing:(UITextField *)textField;           // became first responder
-
-- (void)textFieldDidEndEditing:(UITextField *)textField;             // may be called if forced even if shouldEndEditing returns NO (e.g. view removed from window) or endEditing:YES called	
-```
-		* 	还有一类带有返回值的委托方法，用于从委托中查询需要的信息，例如：
-```
-- (BOOL)textFieldShouldBeginEditing:(UITextField *)textField;        // return NO to disallow editing.
-
-- (BOOL)textFieldShouldEndEditing:(UITextField *)textField;          // return YES to allow editing to stop and to resign first responder status. NO to disallow the editing session to end
-
-- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string;   // return NO to not change text
-
-- (BOOL)textFieldShouldClear:(UITextField *)textField;               // called when clear button pressed. return NO to ignore (no notifications)
-
-- (BOOL)textFieldShouldReturn:(UITextField *)textField;              // called when 'return' key pressed. return NO to ignore.
-```
+        ```
+        - (void)textFieldDidBeginEditing:(UITextField *)textField;           // became first responder
+        
+        - (void)textFieldDidEndEditing:(UITextField *)textField;             // may be called if forced even if shouldEndEditing returns NO (e.g. view removed from window) or endEditing:YES called	
+        ```
+		* 还有一类带有返回值的委托方法，用于从委托中查询需要的信息，例如：
+        ```
+        - (BOOL)textFieldShouldBeginEditing:(UITextField *)textField;        // return NO to disallow editing.
+        
+        - (BOOL)textFieldShouldEndEditing:(UITextField *)textField;          // return YES to allow editing to stop and to resign first responder status. NO to disallow the editing session to end
+        
+        - (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string;   // return NO to not change text
+        
+        - (BOOL)textFieldShouldClear:(UITextField *)textField;               // called when clear button pressed. return NO to ignore (no notifications)
+        
+        - (BOOL)textFieldShouldReturn:(UITextField *)textField;              // called when 'return' key pressed. return NO to ignore.
+        ```
 	2. 委托方法中，第一个参数通常为对象自身。多个对象可能具有相同的委托，当委托收到消息时，需要根据该参数判断发送消息的对象。
 		* 例如，如果某个视图控制器包含多个UiTextField对象，它们的委托都是该视图控制器，那么视图控制器就需要根据textField参数获取不同的UITextField对象并执行不同的操作。
 3. 协议（Protocols）
 	1. 凡是支持委托的对象，其背后都有一个相应的协议（类似 Java/C#中的接口），声明可以向该对象的委托发送的消息
 	2. 委托对象需要根据这个协议为其”感兴趣“的事件实现相应的方法。如果一个类实现了某个协议中规定的方法，就称这个类**遵守(conform)**该协议。
 	3. UITextField的协议示例代码如下：
-```
-// 声明协议的语法是：@protocol+协议名，如下所示
-// <NSObject>是指NSObject协议，作用是：声明UITextFieldDelegate包含NSObject协议的全部方法
-@protocol UITextFieldDelegate <NSObject>
-
-@optional
-
-- (BOOL)textFieldShouldBeginEditing:(UITextField *)textField;        // return NO to disallow editing.
-- (void)textFieldDidBeginEditing:(UITextField *)textField;           // became first responder
-- (BOOL)textFieldShouldEndEditing:(UITextField *)textField;          // return YES to allow editing to stop and to resign first responder status. NO to disallow the editing session to end
-- (void)textFieldDidEndEditing:(UITextField *)textField;             // may be called if forced even if shouldEndEditing returns NO (e.g. view removed from window) or endEditing:YES called
-- (void)textFieldDidEndEditing:(UITextField *)textField reason:(UITextFieldDidEndEditingReason)reason NS_AVAILABLE_IOS(10_0); // if implemented, called in place of textFieldDidEndEditing:
-
-- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string;   // return NO to not change text
-
-- (BOOL)textFieldShouldClear:(UITextField *)textField;               // called when clear button pressed. return NO to ignore (no notifications)
-- (BOOL)textFieldShouldReturn:(UITextField *)textField;              // called when 'return' key pressed. return NO to ignore.
-
-@end	
-```
+        ```
+        // 声明协议的语法是：@protocol+协议名，如下所示
+        // <NSObject>是指NSObject协议，作用是：声明UITextFieldDelegate包含NSObject协议的全部方法
+        @protocol UITextFieldDelegate <NSObject>
+        
+        @optional
+        
+        - (BOOL)textFieldShouldBeginEditing:(UITextField *)textField;        // return NO to disallow editing.
+        - (void)textFieldDidBeginEditing:(UITextField *)textField;           // became first responder
+        - (BOOL)textFieldShouldEndEditing:(UITextField *)textField;          // return YES to allow editing to stop and to resign first responder status. NO to disallow the editing session to end
+        - (void)textFieldDidEndEditing:(UITextField *)textField;             // may be called if forced even if shouldEndEditing returns NO (e.g. view removed from window) or endEditing:YES called
+        - (void)textFieldDidEndEditing:(UITextField *)textField reason:(UITextFieldDidEndEditingReason)reason NS_AVAILABLE_IOS(10_0); // if implemented, called in place of textFieldDidEndEditing:
+        
+        - (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string;   // return NO to not change text
+        
+        - (BOOL)textFieldShouldClear:(UITextField *)textField;               // called when clear button pressed. return NO to ignore (no notifications)
+        - (BOOL)textFieldShouldReturn:(UITextField *)textField;              // called when 'return' key pressed. return NO to ignore.
+        
+        @end	
+        ```
 	4. 协议所声明的方法有required的和optional的
 		* `@required` - 必需协议方法（默认）
 		* `@optional` - 可选协议方法（委托协议中的方法通常都是可选的）
 	5. 发送方在发送可选方法前，会先向其委托发送另一个名为`respondsToSelector:`的消息 - 在运行时检查对象是否实现了指定的方法。例如，UITextField可以实现如下方法：
-```
--（void)clearButtonTapped
-{
-	// textFieldShouldClear:是可选方法，需要先检查委托是否实现了该方法
-	SEL clearSelector = @selector(textFieldShouldClear:);
-	
-	if([self.delegate respondsToSelector:clearSelector]) {
-		if([self.delegate textFieldShouldClera:self]) {
-			self.text = @"";
-		}
-	}
-}	
-```
+        ```
+        -（void)clearButtonTapped
+        {
+        	// textFieldShouldClear:是可选方法，需要先检查委托是否实现了该方法
+        	SEL clearSelector = @selector(textFieldShouldClear:);
+        	
+        	if([self.delegate respondsToSelector:clearSelector]) {
+        		if([self.delegate textFieldShouldClera:self]) {
+        			self.text = @"";
+        		}
+        	}
+        }	
+        ```
 	6. 如果委托对象没有实现响应的方法，应用就会抛出位置选择器（unrecognized selector）异常，导致应用崩溃。
 	7. 将相应的类声明为遵守指定的协议，编译器会自动检查某个类是否实现了相关协议的必须方法
 		* 语法格式为：在头文件或者类扩展的@interface指令末尾，将类所遵守的协议以逗号分隔的形式写在尖括号里。
-```
-@interface BNRHypnosisViewController() <UITextFieldDelegate> 
-@end
-```
-	8. 几乎所有的委托都是弱引用属性，这是为了避免[强引用循环]
-![image](https://github.com/muyanbiao/iOS_programming_4ed_bnr/blob/master/Resources/weakDelegate.png)
+        ```
+        @interface BNRHypnosisViewController() <UITextFieldDelegate> 
+        @end
+        ```
+	8. 几乎所有的委托都是弱引用属性，这是为了避免[强引用循环]。
+	
+		[image:1B914648-463A-4F32-A2C9-90263A4068AA-299-0001081CAAC52054/C613DD8E-65B3-4850-A3B9-889908CB6FA1.png]
 4. 向屏幕中添加UILabel对象
 	* 在屏幕上的随机位置绘制20个UILabel
 		1. 随机点的获取 - 随机x+随机y
@@ -146,13 +112,13 @@
 		* 键路径（key path，需要使用视差效果的属性）
 		* 相对最小/最大值（视差的范围）
 		* 添加到某个视图上，该视图就能获得相应的视差效果
-```
-	UIInterpolatingMotionEffect *motionEffect;
-	motionEffect = [[UIInterpolatingMotionEffect alloc] initWithKeyPath:@"center.x" type:UIInterpolatingMotionEffectTypeTiltAlongHorizontalAxis];
-	motionEffect.minimumRelativeValue = @(-25);
-	motionEffect.maximumRelativeValue = @(25);
-	[messageLabel.addMotionEffect:motionEffect];
-```
+        ```
+        	UIInterpolatingMotionEffect *motionEffect;
+        	motionEffect = [[UIInterpolatingMotionEffect alloc] initWithKeyPath:@"center.x" type:UIInterpolatingMotionEffectTypeTiltAlongHorizontalAxis];
+        	motionEffect.minimumRelativeValue = @(-25);
+        	motionEffect.maximumRelativeValue = @(25);
+        	[messageLabel.addMotionEffect:motionEffect];
+        ```
 6. 使用调试器
 	1. 是用断点
 	2. 单步执行代码
@@ -160,14 +126,14 @@
 	4. 设置异常断点
 7. 深入学习：main()与UIApplication
 	1. 用C语言编写的程序，其执行入口都是main()。用Objective-C语言编写的程序也是这样
-```
-int main(int argc, char *argv[])	
-{
-	@autoreleasepool {
-		return UIApplicationMain(argc, argv, nil, NSStringFromClass([BNRAppDelegate class]));
-	}
-}
-```
+        ```
+        int main(int argc, char *argv[])	
+        {
+        	@autoreleasepool {
+        		return UIApplicationMain(argc, argv, nil, NSStringFromClass([BNRAppDelegate class]));
+        	}
+        }
+        ```
 	2. 上面这段代码中的`UIApplicationMain`函数会创建一个`UIApplication`对象
 		* 每个iOS应用都有且仅有一个`UIApplication`对象，该对象的作用是维护运行循环
 		* 一旦创建了某个`UIApplication`对象该对象的运行循环就会一直循环下去，`main()`的执行也会因此阻塞
@@ -177,3 +143,4 @@ int main(int argc, char *argv[])
 	4. 在应用启动运行循环并开始接收事件之前，UIApplication对象会向其委托发送一个特定的消息，使应用能有机会完成相应的初始化工作。这个消息的名称是`application:didFinishLaunchingWithOptions:`。
 	5. 每个iOS应用都有一个`main()`，完成的都是相同的任务
 8. 中级练习：捏合-缩放（Silver Challenge:Pinch to Zoom）
+	* 通过
