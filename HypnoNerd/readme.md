@@ -8,10 +8,9 @@
 	1. 创建`UITextField *textField = [[UITextField alloc] initWithFrame:CGRectMake(40,70,240,30)];`
 	2.  **UIResponder** - UIKit框架中的一个抽象类，`UIView、UIViewController、UIApplication`都是它的子类
 		1. `UIResponder`定义了一系列方法，用于接收和处理用户事件，例如触摸事件、运动事件（如摇晃设备）和功能控制事件（如编辑文本和播放音乐）等。`UIResponder`的子类会覆盖这些方法，实现自己的事件响应代码。
-		2. 触摸事件由被触摸的视图负责处理，系统会将触摸事件发送给被触摸的视图 - 参见第5章[触摸事件的处理](bear://x-callback-url/open-note?id=ED55DAB3-CA95-4815-AB73-3965FD0841AF-299-0000F5AAD8AD50A7)
+		2. 触摸事件由被触摸的视图负责处理，系统会将触摸事件发送给被触摸的视图 - 参见第5章[触摸事件的处理]
 		3. 其他类型的事件则会由第一响应者(`firstResponder`)处理，`UIWindow`有一个`firstResponder`属性指向第一响应者。例如，当用户点击`UITextField`对象时，`UITextField`对象就会成为第一响应者。`UIWindow`会将`firstResponder`指向该对象，之后，如果应用接收到运动事件和功能控制事件，都会发送给`UITextField`对象(如图7-2)	
-					[image:5091BB0A-D694-4EF9-91E6-E5B0065A4DD2-299-00010103BFC73973/FFEA3395-EEB5-4EB7-84E4-26951FE8FEB1.png]
-											图7-2  第一响应者				
+		![image](https://github.com/muyanbiao/iOS_programming_4ed_bnr/blob/master/Resources/firstResponder.png)
 		4. 当某个`UITextField`对象或`UITextView`对象成为第一响应者时，屏幕会弹出键盘。
 		5. 除了用户点击之外，还可以在代码中向`UITextField`对象发送`becomeFirstResponder`消息，使其成为第一响应者
 		6. 相反，如果要关闭键盘，则可以向`UITextField`对象发送`resignFirstResponder`，要求该对象放弃第一响应者身份。
@@ -96,8 +95,7 @@
         @end
         ```
 	8. 几乎所有的委托都是弱引用属性，这是为了避免[强引用循环]。
-	
-		[image:1B914648-463A-4F32-A2C9-90263A4068AA-299-0001081CAAC52054/C613DD8E-65B3-4850-A3B9-889908CB6FA1.png]
+	![image](https://github.com/muyanbiao/iOS_programming_4ed_bnr/blob/master/Resources/weakDelegate.png)
 4. 向屏幕中添加UILabel对象
 	* 在屏幕上的随机位置绘制20个UILabel
 		1. 随机点的获取 - 随机x+随机y
