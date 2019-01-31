@@ -113,11 +113,11 @@
 		* 相对最小/最大值（视差的范围）
 		* 添加到某个视图上，该视图就能获得相应的视差效果
         ```
-        	UIInterpolatingMotionEffect *motionEffect;
-        	motionEffect = [[UIInterpolatingMotionEffect alloc] initWithKeyPath:@"center.x" type:UIInterpolatingMotionEffectTypeTiltAlongHorizontalAxis];
-        	motionEffect.minimumRelativeValue = @(-25);
-        	motionEffect.maximumRelativeValue = @(25);
-        	[messageLabel.addMotionEffect:motionEffect];
+	UIInterpolatingMotionEffect *motionEffect;
+	motionEffect = [[UIInterpolatingMotionEffect alloc] initWithKeyPath:@"center.x" type:UIInterpolatingMotionEffectTypeTiltAlongHorizontalAxis];
+	motionEffect.minimumRelativeValue = @(-25);
+	motionEffect.maximumRelativeValue = @(25);
+	[messageLabel.addMotionEffect:motionEffect];
         ```
 6. 使用调试器
 	1. 是用断点
