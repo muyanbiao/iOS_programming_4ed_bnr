@@ -1,6 +1,6 @@
 # 第7章 - 委托与文本输入(Delegation and Text Input)
 ### 概述
-1. 委托是Cocoa Touch中的一种[常见设计模式]
+1. 委托是Cocoa Touch中的一种[常见设计模式](http://note.youdao.com/noteshare?id=23b089a2f8f2b45ef29a18169f61a5a0)
 2. `UITextField`是常用的文本输入控件
 
 ### 详细总结
@@ -8,8 +8,8 @@
 	1. 创建`UITextField *textField = [[UITextField alloc] initWithFrame:CGRectMake(40,70,240,30)];`
 	2.  **UIResponder** - UIKit框架中的一个抽象类，`UIView、UIViewController、UIApplication`都是它的子类
 		1. `UIResponder`定义了一系列方法，用于接收和处理用户事件，例如触摸事件、运动事件（如摇晃设备）和功能控制事件（如编辑文本和播放音乐）等。`UIResponder`的子类会覆盖这些方法，实现自己的事件响应代码。
-		2. 触摸事件由被触摸的视图负责处理，系统会将触摸事件发送给被触摸的视图 - 参见第5章[触摸事件的处理]
-		3. 其他类型的事件则会由第一响应者(`firstResponder`)处理，`UIWindow`有一个`firstResponder`属性指向第一响应者。例如，当用户点击`UITextField`对象时，`UITextField`对象就会成为第一响应者。`UIWindow`会将`firstResponder`指向该对象，之后，如果应用接收到运动事件和功能控制事件，都会发送给`UITextField`对象(如图7-2)	
+		2. 触摸事件由被触摸的视图负责处理，系统会将触摸事件发送给被触摸的视图 - 参见第5章[触摸事件的处理](http://note.youdao.com/noteshare?id=dd926697b49b6b8e34c9e589f8f1760c)
+		3. 其他类型的事件则会由第一响应者(`firstResponder`)处理，`UIWindow`有一个`firstResponder`属性指向第一响应者。例如，当用户点击`UITextField`对象时，`UITextField`对象就会成为第一响应者。`UIWindow`会将`firstResponder`指向该对象，之后，如果应用接收到运动事件和功能控制事件，都会发送给`UITextField`对象(如图7-2)  
 		![image](https://github.com/muyanbiao/iOS_programming_4ed_bnr/blob/master/Resources/firstResponder.png)
 		4. 当某个`UITextField`对象或`UITextView`对象成为第一响应者时，屏幕会弹出键盘。
 		5. 除了用户点击之外，还可以在代码中向`UITextField`对象发送`becomeFirstResponder`消息，使其成为第一响应者
