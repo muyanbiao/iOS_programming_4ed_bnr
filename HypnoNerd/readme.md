@@ -132,4 +132,48 @@
 ```
 	8. 几乎所有的委托都是弱引用属性，这是为了避免[强引用循环]
 ![image](https://github.com/muyanbiao/iOS_programming_4ed_bnr/blob/master/Resources/weakDelegate.png)
-
+4. 向屏幕中添加UILabel对象
+	* 在屏幕上的随机位置绘制20个UILabel
+		1. 随机点的获取 - 随机x+随机y
+		2. 改变UILabel的frame.origin值
+5. 运动效果（Motion Effects）
+	1. 视差 - 大脑对空间和速度差异产生的一种错觉，例如：
+		1. 坐在飞驰的汽车上向车窗外望去，会发现远处的景物倒退的速度比近处的要慢得多
+		2. iOS7之后，在主屏幕中，稍微倾斜设备，主屏幕上的图标会随着倾斜方向相对于壁纸移动
+	2. 应用可以通过`UIInterpolatingMotionEffect`类实现相同的效果
+		* 创建一个`UIInterpolatingMotionEffect`对象
+		* 设置其方向（水平或者垂直）
+		* 键路径（key path，需要使用视差效果的属性）
+		* 相对最小/最大值（视差的范围）
+		* 添加到某个视图上，该视图就能获得相应的视差效果
+```
+	UIInterpolatingMotionEffect *motionEffect;
+	motionEffect = [[UIInterpolatingMotionEffect alloc] initWithKeyPath:@"center.x" type:UIInterpolatingMotionEffectTypeTiltAlongHorizontalAxis];
+	motionEffect.minimumRelativeValue = @(-25);
+	motionEffect.maximumRelativeValue = @(25);
+	[messageLabel.addMotionEffect:motionEffect];
+```
+6. 使用调试器
+	1. 是用断点
+	2. 单步执行代码
+	3. 删除断点
+	4. 设置异常断点
+7. 深入学习：main()与UIApplication
+	1. 用C语言编写的程序，其执行入口都是main()。用Objective-C语言编写的程序也是这样
+```
+int main(int argc, char *argv[])	
+{
+	@autoreleasepool {
+		return UIApplicationMain(argc, argv, nil, NSStringFromClass([BNRAppDelegate class]));
+	}
+}
+```
+	2. 上面这段代码中的`UIApplicationMain`函数会创建一个`UIApplication`对象
+		* 每个iOS应用都有且仅有一个`UIApplication`对象，该对象的作用是维护运行循环
+		* 一旦创建了某个`UIApplication`对象该对象的运行循环就会一直循环下去，`main()`的执行也会因此阻塞
+	3. 此外，`UIApplicationMain`函数还会创建某个指定类的对象，并将其设置为`UIApplication`对象的delegate。
+		* 该对象的类是由`UIApplicationMain`函数的最后一个实参指定的，该实参的类型是NSString对象，代表某各类的名称。
+		* 所以在以上这段代码中，`UIApplicationMain`函数会创建一个BNRAppDelegate对象，并将其设置为UIApplication对象的delegate
+	4. 在应用启动运行循环并开始接收事件之前，UIApplication对象会向其委托发送一个特定的消息，使应用能有机会完成相应的初始化工作。这个消息的名称是`application:didFinishLaunchingWithOptions:`。
+	5. 每个iOS应用都有一个`main()`，完成的都是相同的任务
+8. 中级练习：捏合-缩放（Silver Challenge:Pinch to Zoom）
