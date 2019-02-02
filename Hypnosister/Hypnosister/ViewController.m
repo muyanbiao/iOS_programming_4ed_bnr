@@ -9,11 +9,22 @@
 #import "ViewController.h"
 #import "BNRHypnosisView.h"
 
-@interface ViewController ()
+@interface ViewController ()<UIScrollViewDelegate>
+
+// MARK:第7章中级练习：捏合-缩放
+@property(nonatomic, strong)BNRHypnosisView *hyponsisView;
 
 @end
 
 @implementation ViewController
+
+- (BNRHypnosisView *)hyponsisView {
+    if(!_hyponsisView) {
+        CGRect screenRect = self.view.bounds;
+        _hyponsisView = [[BNRHypnosisView alloc] initWithFrame:screenRect];
+    }
+    return _hyponsisView;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -32,22 +43,29 @@
     CGRect screenRect = self.view.bounds;
     CGRect bigRect = screenRect;
     
-    bigRect.size.width *= 2;
+//    bigRect.size.width *= 2;
 //    bigRect.size.height *= 2;
     
     UIScrollView *scrollView = [[UIScrollView alloc] initWithFrame:screenRect];
     [self.view addSubview:scrollView];
     
-    BNRHypnosisView *hyponsisView = [[BNRHypnosisView alloc] initWithFrame:screenRect];
-    [scrollView addSubview:hyponsisView];
+//    self.hyponsisView = [[BNRHypnosisView alloc] initWithFrame:screenRect];
+    [scrollView addSubview:self.hyponsisView];
 
-    screenRect.origin.x += screenRect.size.width;
-    BNRHypnosisView *anotherView = [[BNRHypnosisView alloc] initWithFrame:screenRect];
-    [scrollView addSubview:anotherView];
-    [scrollView setPagingEnabled:YES];
+//    screenRect.origin.x += screenRect.size.width;
+//    BNRHypnosisView *anotherView = [[BNRHypnosisView alloc] initWithFrame:screenRect];
+//    [scrollView addSubview:anotherView];
+    
+    scrollView.delegate = self;
     [scrollView setPagingEnabled:NO];
     scrollView.contentSize = bigRect.size;
+    scrollView.minimumZoomScale = 1.0;
+    scrollView.maximumZoomScale = 10.0;
     
+}
+
+- (UIView *)viewForZoomingInScrollView:(UIScrollView *)scrollView {
+    return self.hyponsisView;
 }
 
 
