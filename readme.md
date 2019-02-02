@@ -4,7 +4,7 @@
 2. [Objective-C](https://github.com/muyanbiao/iOS_programming_4ed_bnr/blob/master/RandomItems/readme.md)
 3. 通过ARC管理内存
 4. [视图与视图层次结构 - Hypnosister](https://github.com/muyanbiao/iOS_programming_4ed_bnr/blob/master/Hypnosister/readme.md)
-5. 视图：重绘与UIScrollView - Hypnosister
+5. [视图：重绘与UIScrollView - Hypnosister](https://github.com/muyanbiao/iOS_programming_4ed_bnr/blob/master/Hypnosister/readme.md)
 	1. 运行循环与重绘视图（The Run Loop and Redrawing Views）
 	2. 类扩展（Class Extentions）
 	3. 使用UIScrollView（Using UIScrollView）
