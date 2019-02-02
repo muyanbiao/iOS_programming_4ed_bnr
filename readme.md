@@ -27,4 +27,4 @@
 	7. 深入学习：main()与UIApplication（For the More Curious: main() and UIApplication）
 	8. 中级练习：捏合-缩放（Silver Challenge：Pinch to Zoom）
 
-注：章节名称后面跟着的是赌赢的项目名，方便查阅
+注：章节名称后面跟着的是对应的项目名，方便查阅
