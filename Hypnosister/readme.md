@@ -29,3 +29,15 @@
 		3. NSString:```[logoString drawInRect:<#(CGRect)#> withAttributes:<#(nullable NSDictionary<NSAttributedStringKey,id> *)#>];```
 
 ### [BNRHypnosisView.m](https://github.com/muyanbiao/iOS_programming_4ed_bnr/blob/master/Hypnosister/Hypnosister/BNRHypnosisView.m)为UIView的子类，自定义绘图的实现代码都在该文件中
+
+# 第5章 - 重绘与UIScrollView
+### 触摸事件的处理
+1. 当用户触摸视图时，视图会收到`touchesBegan:withEvent:`消息，该消息用来处理触摸事件。
+2. 在自定义View - BNRHypnosisView中覆盖`touchesBegan:withEvent:`，就可以在用户触摸视图的时候定义我们自己的操作
+    ```
+    - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
+    	NSLog(@"%@ was touched", self);
+    	// 定义我们想要的操作
+    );
+    }
+    ```
