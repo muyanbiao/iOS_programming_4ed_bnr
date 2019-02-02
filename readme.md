@@ -11,7 +11,7 @@
 	4. 新建UIScrollView、contentSize属性的设置
 	5. 拖动与分页
 6. [视图控制器 - HypnoNerd](https://github.com/muyanbiao/iOS_programming_4ed_bnr/blob/master/HypnoNerd/readme.md)
-7. [委托与文本输入](https://github.com/muyanbiao/iOS_programming_4ed_bnr/blob/master/HypnoNerd/readme.md)
+7. [委托与文本输入 - HypnoNerd](https://github.com/muyanbiao/iOS_programming_4ed_bnr/blob/master/HypnoNerd/readme.md)
 	1. 文本框（UITextField）
 		* UIResponder
 		* 设置UITextField键盘
