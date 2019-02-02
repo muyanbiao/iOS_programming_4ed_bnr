@@ -1,7 +1,7 @@
 # iOS Programming 4ed 例题、练习代码实现
 ### 章节目录
 1. 第一个简单的iOS应用
-2. Objective-C
+2. [Objective-C](https://github.com/muyanbiao/iOS_programming_4ed_bnr/blob/master/RandomItems/readme.md)
 3. 通过ARC管理内存
 4. 视图与视图层次结构 - Hypnosister
 5. 视图：重绘与UIScrollView - Hypnosister
