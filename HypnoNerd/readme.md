@@ -175,7 +175,7 @@
 		* 所以在以上这段代码中，`UIApplicationMain`函数会创建一个BNRAppDelegate对象，并将其设置为UIApplication对象的delegate
 	4. 在应用启动运行循环并开始接收事件之前，UIApplication对象会向其委托发送一个特定的消息，使应用能有机会完成相应的初始化工作。这个消息的名称是`application:didFinishLaunchingWithOptions:`。
 	5. 每个iOS应用都有一个`main()`，完成的都是相同的任务
-8. 中级练习：捏合-缩放（Silver Challenge:Pinch to Zoom）- 在第5章创建的Hypnosister应用中添加捏合-缩放功能
+8. 中级练习：捏合-缩放（Silver Challenge:Pinch to Zoom）- 在第5章创建的[Hypnosister应用](https://github.com/muyanbiao/iOS_programming_4ed_bnr/blob/master/Hypnosister/Hypnosister/ViewController.m)中添加捏合-缩放功能
 	1. ViewController遵守`UIScrollviewDelegate`协议
 	2. 将ViewController设置为UIScrollView对象的委托(delegate)
 	3. 设置必要的属性
