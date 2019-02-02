@@ -10,7 +10,7 @@
 #import "BNRHypnosisViewController.h"
 #import "BNRReminderViewController.h"
 
-@interface BNRAppDelegate ()
+@interface BNRAppDelegate ()<UIScrollViewDelegate>
 
 @end
 
@@ -21,6 +21,7 @@
     // Override point for customization after application launch.
     BNRHypnosisViewController *hvc = [[BNRHypnosisViewController alloc] init];
     self.window.rootViewController = hvc;
+
 
     NSBundle *appBundle = [NSBundle mainBundle];
 //    BNRReminderViewController *rvc = [[BNRReminderViewController alloc] initWithNibName:@"BNRReminderViewController" bundle:appBundle];

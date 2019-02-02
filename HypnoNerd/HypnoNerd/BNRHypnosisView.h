@@ -12,7 +12,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface BNRHypnosisView : UIView
 
-@property(nonatomic) CGRect frame;
+//@property(nonatomic) CGRect frame;
 
 - (void)updateCirclrColor:(UIColor *)color;
 

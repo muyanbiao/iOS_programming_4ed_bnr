@@ -10,7 +10,7 @@
 #import "BNRHypnosisView.h"
 #import "UIImage+ImageFromColor.h"
 
-@interface BNRHypnosisViewController () <UITextFieldDelegate>
+@interface BNRHypnosisViewController () <UITextFieldDelegate, UIScrollViewDelegate>
 
 @end
 
@@ -33,7 +33,18 @@
 
 - (void)loadView {
     // MARK: 设置当前页面的根View
-    BNRHypnosisView *backgroundView = [[BNRHypnosisView alloc] init];
+    CGRect frame = [UIScreen mainScreen].bounds;
+    BNRHypnosisView *backgroundView = [[BNRHypnosisView alloc] initWithFrame:frame];
+    
+    CGRect textFieldRect = CGRectMake(40, 70, 240, 30);
+    UITextField *textField = [[UITextField alloc] initWithFrame:textFieldRect];
+    
+    textField.borderStyle = UITextBorderStyleRoundedRect;
+    textField.placeholder = @"Hypnotize me";
+    textField.returnKeyType = UIReturnKeyDone;
+    textField.delegate = self;
+    [backgroundView addSubview:textField];
+    
     self.view = backgroundView;
 }
 
@@ -54,13 +65,23 @@
     [self.view addSubview:segControl];
     [segControl addTarget:nil action:@selector(selectSegItem:) forControlEvents:UIControlEventValueChanged];
     
-    UIButton *btn = [[UIButton alloc] init];
-    [btn addTarget:self action:@selector(btnAction:) forControlEvents:UIControlEventTouchUpInside];
+//    UIButton *btn = [[UIButton alloc] init];
+//    [btn addTarget:self action:@selector(btnAction:) forControlEvents:UIControlEventTouchUpInside];
     
 }
 
-- (void)btnAction:(UIButton *)sender {
+//- (void)btnAction:(UIButton *)sender {
+//
+//}
+
+#pragma mark Asks the delegate if the text field should process the pressing of the return button.
+- (BOOL)textFieldShouldReturn:(UITextField *)textField {
+//    NSLog(@"%@", textField.text);
+    [self drawHypnoticeMessage:textField.text];
     
+    textField.text = @"";
+    [textField resignFirstResponder]; // 放弃第一响应者r身份，关闭键盘
+    return YES;
 }
 
 -(void)selectSegItem:(UISegmentedControl *)segControl {
@@ -79,6 +100,46 @@
     } else if (selectedSegmentIndex == 2) {
 //        [backgroundView updateCirclrColor:[UIColor blueColor]];
         [backgroundView setValue:[UIColor redColor] forKey:@"circleColor"];
+    }
+}
+
+#pragma mark 在随机位置绘制20个UILabel
+- (void)drawHypnoticeMessage:(NSString *)message {
+    for (int i = 0; i < 20; i++) {
+        UILabel *messageLabel = [[UILabel alloc] init];
+        
+        messageLabel.backgroundColor = [UIColor clearColor];
+        messageLabel.textColor = [UIColor whiteColor];
+        messageLabel.text = message;
+        
+        [messageLabel sizeToFit];
+        
+        // MARK: 获取随机x坐标
+        int width = (int)(self.view.bounds.size.width - messageLabel.bounds.size.width);
+        int x = arc4random() % width;
+        
+        // MARK: 获取随机y坐标
+        int height = (int)(self.view.bounds.size.height - messageLabel.bounds.size.height);
+        int y = arc4random() % height;
+        
+        // MARK: 设置UIlabel对象的frame
+        CGRect frame = messageLabel.frame;
+        frame.origin = CGPointMake(x, y);
+        messageLabel.frame = frame;
+        
+        [self.view addSubview:messageLabel];
+        
+        // MARK: 添加运动效果（Motion Effects）
+        UIInterpolatingMotionEffect *motionEffect;
+        motionEffect = [[UIInterpolatingMotionEffect alloc] initWithKeyPath:@"center.x" type:UIInterpolatingMotionEffectTypeTiltAlongHorizontalAxis];
+        motionEffect.minimumRelativeValue = @(-25);
+        motionEffect.maximumRelativeValue = @(25);
+        [messageLabel addMotionEffect:motionEffect];
+        
+        motionEffect = [[UIInterpolatingMotionEffect alloc] initWithKeyPath:@"center.y" type:UIInterpolatingMotionEffectTypeTiltAlongVerticalAxis];
+        motionEffect.minimumRelativeValue = @(-25);
+        motionEffect.maximumRelativeValue = @(25);
+        [messageLabel addMotionEffect:motionEffect];
     }
 }
 

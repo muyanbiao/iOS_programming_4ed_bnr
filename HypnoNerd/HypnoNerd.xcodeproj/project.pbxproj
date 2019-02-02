@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		172CF6A421FF13910043A812 /* BNRAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 172CF6A321FF13910043A812 /* BNRAppDelegate.m */; };
 		172CF6AA21FF13910043A812 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 172CF6A821FF13910043A812 /* Main.storyboard */; };
-		172CF6AC21FF13930043A812 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 172CF6AB21FF13930043A812 /* Assets.xcassets */; };
 		172CF6AF21FF13930043A812 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 172CF6AD21FF13930043A812 /* LaunchScreen.storyboard */; };
 		172CF6B221FF13930043A812 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 172CF6B121FF13930043A812 /* main.m */; };
 		172CF6BA21FF141B0043A812 /* BNRHypnosisView.m in Sources */ = {isa = PBXBuildFile; fileRef = 172CF6B921FF141B0043A812 /* BNRHypnosisView.m */; };
@@ -17,6 +16,7 @@
 		172CF6C021FF39F60043A812 /* BNRReminderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 172CF6BF21FF39F60043A812 /* BNRReminderViewController.m */; };
 		172CF6C221FF51720043A812 /* BNRReminderViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 172CF6C121FF51720043A812 /* BNRReminderViewController.xib */; };
 		172CF6C82200029F0043A812 /* UIImage+ImageFromColor.m in Sources */ = {isa = PBXBuildFile; fileRef = 172CF6C62200029F0043A812 /* UIImage+ImageFromColor.m */; };
+		172CF6CA22034CD60043A812 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 172CF6C922034CD60043A812 /* Assets.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,7 +24,6 @@
 		172CF6A221FF13910043A812 /* BNRAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BNRAppDelegate.h; sourceTree = "<group>"; };
 		172CF6A321FF13910043A812 /* BNRAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BNRAppDelegate.m; sourceTree = "<group>"; };
 		172CF6A921FF13910043A812 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		172CF6AB21FF13930043A812 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		172CF6AE21FF13930043A812 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		172CF6B021FF13930043A812 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		172CF6B121FF13930043A812 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -37,6 +36,7 @@
 		172CF6C121FF51720043A812 /* BNRReminderViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BNRReminderViewController.xib; sourceTree = "<group>"; };
 		172CF6C62200029F0043A812 /* UIImage+ImageFromColor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+ImageFromColor.m"; sourceTree = "<group>"; };
 		172CF6C72200029F0043A812 /* UIImage+ImageFromColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+ImageFromColor.h"; sourceTree = "<group>"; };
+		172CF6C922034CD60043A812 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,7 +69,6 @@
 		172CF6A121FF13910043A812 /* HypnoNerd */ = {
 			isa = PBXGroup;
 			children = (
-				172CF6AB21FF13930043A812 /* Assets.xcassets */,
 				172CF6A221FF13910043A812 /* BNRAppDelegate.h */,
 				172CF6A321FF13910043A812 /* BNRAppDelegate.m */,
 				172CF6B821FF141B0043A812 /* BNRHypnosisView.h */,
@@ -82,6 +81,7 @@
 				172CF6B021FF13930043A812 /* Info.plist */,
 				172CF6AD21FF13930043A812 /* LaunchScreen.storyboard */,
 				172CF6B121FF13930043A812 /* main.m */,
+				172CF6C922034CD60043A812 /* Assets.xcassets */,
 				172CF6A821FF13910043A812 /* Main.storyboard */,
 				172CF6C72200029F0043A812 /* UIImage+ImageFromColor.h */,
 				172CF6C62200029F0043A812 /* UIImage+ImageFromColor.m */,
@@ -149,7 +149,7 @@
 			files = (
 				172CF6AF21FF13930043A812 /* LaunchScreen.storyboard in Resources */,
 				172CF6C221FF51720043A812 /* BNRReminderViewController.xib in Resources */,
-				172CF6AC21FF13930043A812 /* Assets.xcassets in Resources */,
+				172CF6CA22034CD60043A812 /* Assets.xcassets in Resources */,
 				172CF6AA21FF13910043A812 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -308,6 +308,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 95MT857CBA;
 				INFOPLIST_FILE = HypnoNerd/Info.plist;
@@ -325,6 +326,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 95MT857CBA;
 				INFOPLIST_FILE = HypnoNerd/Info.plist;
