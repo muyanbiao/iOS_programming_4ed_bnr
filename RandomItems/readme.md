@@ -52,6 +52,7 @@
 		4. 其他初始化方法要调用指定初始化方法(直接或间接)
 		5. 如果某个类所声明的指定初始化方法与其父类的不同，就必须覆盖父类的指定初始化方法，并调用新的制定初始化方法(直接或间接)
 
+---
 # 第3章 - 通过ARC管理内存(Managing Memory with ARC)
 ### ARC(automatic reference counting) - 自动引用计数
 1. **栈（The Stack）**
