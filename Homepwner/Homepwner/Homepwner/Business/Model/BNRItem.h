@@ -15,7 +15,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy) NSString *itemName;
 @property(nonatomic, copy) NSString *serialNumber;
 @property(nonatomic) int valueInDollars;
-@property(nonatomic, readonly, strong) NSDate *dateCreated;
+@property(nonatomic, strong) NSDate *dateCreated;
+@property(nonatomic, copy) NSString *itemKey;
 
 // 这两个变量是用来测试强引用和弱引用的
 //@property(nonatomic, strong) BNRItem *containedItem;

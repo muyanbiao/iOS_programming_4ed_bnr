@@ -18,9 +18,12 @@ NS_ASSUME_NONNULL_BEGIN
 +(instancetype)sharedStore;
 
 - (BNRItem *)createItem;
+- (void)removeItem:(BNRItem *)item;
 
 - (NSArray *)valueBiggerThan50Items;
 - (NSArray *)valueSmallerOrEqualTo50Items;
+
+- (void)moveItemAtIndex:(NSUInteger)fromIndex toIndex:(NSUInteger)toIndex;
 
 @end
 

@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14810.12" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14766.15"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+        <capability name="iOS 13.0 system colors" minToolsVersion="11.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="BNRItemsViewController">
+            <connections>
+                <outlet property="headerView" destination="H96-FD-bmR" id="QOB-BL-Ltw"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="H96-FD-bmR">
+            <rect key="frame" x="0.0" y="0.0" width="379" height="78"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="R26-Ch-kSx">
+                    <rect key="frame" x="209.5" y="9" width="129.5" height="60"/>
+                    <color key="backgroundColor" cocoaTouchSystemColor="systemBlueColor"/>
+                    <state key="normal" title="New">
+                        <color key="titleColor" xcode11CocoaTouchSystemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                    </state>
+                    <connections>
+                        <action selector="addNewItem:" destination="-1" eventType="touchUpInside" id="rH8-lc-v3G"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pnb-xN-yGT">
+                    <rect key="frame" x="40" y="9" width="129.5" height="60"/>
+                    <color key="backgroundColor" cocoaTouchSystemColor="systemBlueColor"/>
+                    <state key="normal" title="Edit">
+                        <color key="titleColor" xcode11CocoaTouchSystemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                    </state>
+                    <connections>
+                        <action selector="toggleEditingMode:" destination="-1" eventType="touchUpInside" id="BnN-YQ-KhW"/>
+                    </connections>
+                </button>
+            </subviews>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="R26-Ch-kSx" secondAttribute="trailing" constant="40" id="0Ig-bx-bRn"/>
+                <constraint firstItem="R26-Ch-kSx" firstAttribute="width" secondItem="pnb-xN-yGT" secondAttribute="width" id="9Rf-21-7tV"/>
+                <constraint firstItem="pnb-xN-yGT" firstAttribute="top" secondItem="H96-FD-bmR" secondAttribute="top" constant="9" id="MQA-h0-loa"/>
+                <constraint firstAttribute="bottom" secondItem="R26-Ch-kSx" secondAttribute="bottom" constant="9" id="O9f-yU-jyz"/>
+                <constraint firstItem="R26-Ch-kSx" firstAttribute="top" secondItem="H96-FD-bmR" secondAttribute="top" constant="9" id="XE5-3o-G7g"/>
+                <constraint firstItem="R26-Ch-kSx" firstAttribute="leading" secondItem="pnb-xN-yGT" secondAttribute="trailing" constant="40" id="gRS-5X-8yk"/>
+                <constraint firstAttribute="bottom" secondItem="pnb-xN-yGT" secondAttribute="bottom" constant="9" id="iFs-6m-4Cm"/>
+                <constraint firstItem="pnb-xN-yGT" firstAttribute="leading" secondItem="H96-FD-bmR" secondAttribute="leading" constant="40" id="zx3-3E-hjj"/>
+            </constraints>
+            <nil key="simulatedTopBarMetrics"/>
+            <nil key="simulatedBottomBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="74.637681159420296" y="-587.27678571428567"/>
+        </view>
+    </objects>
+</document>

@@ -10,6 +10,9 @@
 		DB500AE022D4974000DAF434 /* BNRItemStore.m in Sources */ = {isa = PBXBuildFile; fileRef = DB500ADC22D4974000DAF434 /* BNRItemStore.m */; };
 		DB500AE122D4974000DAF434 /* BNRItem.m in Sources */ = {isa = PBXBuildFile; fileRef = DB500ADE22D4974000DAF434 /* BNRItem.m */; };
 		DB500AE222D4974000DAF434 /* BNRItemsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DB500ADF22D4974000DAF434 /* BNRItemsViewController.m */; };
+		DB500AE622D5E7BC00DAF434 /* HeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = DB500AE522D5E7BC00DAF434 /* HeaderView.xib */; };
+		DB500AED22D61B6C00DAF434 /* BNRDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DB500AEB22D61B6C00DAF434 /* BNRDetailViewController.m */; };
+		DB500AEE22D61B6C00DAF434 /* BNRDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DB500AEC22D61B6C00DAF434 /* BNRDetailViewController.xib */; };
 		DB7F3DF222D490CF0035B647 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = DB7F3DF122D490CF0035B647 /* AppDelegate.m */; };
 		DB7F3DF522D490CF0035B647 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DB7F3DF422D490CF0035B647 /* ViewController.m */; };
 		DB7F3DF822D490CF0035B647 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DB7F3DF622D490CF0035B647 /* Main.storyboard */; };
@@ -18,6 +21,9 @@
 		DB7F3E0022D490D10035B647 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = DB7F3DFF22D490D10035B647 /* main.m */; };
 		DB7F3E0A22D490D10035B647 /* HomepwnerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = DB7F3E0922D490D10035B647 /* HomepwnerTests.m */; };
 		DB7F3E1522D490D10035B647 /* HomepwnerUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = DB7F3E1422D490D10035B647 /* HomepwnerUITests.m */; };
+		DB8BD77422D7287B0013A0FF /* BNRDatePickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DB8BD77222D7287B0013A0FF /* BNRDatePickerViewController.m */; };
+		DB8BD77522D7287B0013A0FF /* BNRDatePickerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DB8BD77322D7287B0013A0FF /* BNRDatePickerViewController.xib */; };
+		DB8BD77922D74FA40013A0FF /* BNRImageStore.m in Sources */ = {isa = PBXBuildFile; fileRef = DB8BD77822D74FA40013A0FF /* BNRImageStore.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +50,10 @@
 		DB500ADD22D4974000DAF434 /* BNRItemsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BNRItemsViewController.h; sourceTree = "<group>"; };
 		DB500ADE22D4974000DAF434 /* BNRItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BNRItem.m; sourceTree = "<group>"; };
 		DB500ADF22D4974000DAF434 /* BNRItemsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BNRItemsViewController.m; sourceTree = "<group>"; };
+		DB500AE522D5E7BC00DAF434 /* HeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HeaderView.xib; sourceTree = "<group>"; };
+		DB500AEA22D61B6C00DAF434 /* BNRDetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BNRDetailViewController.h; sourceTree = "<group>"; };
+		DB500AEB22D61B6C00DAF434 /* BNRDetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BNRDetailViewController.m; sourceTree = "<group>"; };
+		DB500AEC22D61B6C00DAF434 /* BNRDetailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BNRDetailViewController.xib; sourceTree = "<group>"; };
 		DB7F3DED22D490CF0035B647 /* Homepwner.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Homepwner.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DB7F3DF022D490CF0035B647 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		DB7F3DF122D490CF0035B647 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -60,6 +70,11 @@
 		DB7F3E1022D490D10035B647 /* HomepwnerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HomepwnerUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		DB7F3E1422D490D10035B647 /* HomepwnerUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HomepwnerUITests.m; sourceTree = "<group>"; };
 		DB7F3E1622D490D10035B647 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DB8BD77122D7287B0013A0FF /* BNRDatePickerViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BNRDatePickerViewController.h; sourceTree = "<group>"; };
+		DB8BD77222D7287B0013A0FF /* BNRDatePickerViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BNRDatePickerViewController.m; sourceTree = "<group>"; };
+		DB8BD77322D7287B0013A0FF /* BNRDatePickerViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BNRDatePickerViewController.xib; sourceTree = "<group>"; };
+		DB8BD77722D74FA40013A0FF /* BNRImageStore.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BNRImageStore.h; sourceTree = "<group>"; };
+		DB8BD77822D74FA40013A0FF /* BNRImageStore.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BNRImageStore.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -90,12 +105,9 @@
 		DB500AD922D496F100DAF434 /* Business */ = {
 			isa = PBXGroup;
 			children = (
-				DB500ADA22D4974000DAF434 /* BNRItem.h */,
-				DB500ADE22D4974000DAF434 /* BNRItem.m */,
-				DB500ADB22D4974000DAF434 /* BNRItemStore.h */,
-				DB500ADC22D4974000DAF434 /* BNRItemStore.m */,
-				DB500ADD22D4974000DAF434 /* BNRItemsViewController.h */,
-				DB500ADF22D4974000DAF434 /* BNRItemsViewController.m */,
+				DB8BD77022D713BA0013A0FF /* Controller */,
+				DB8BD76F22D713B00013A0FF /* View */,
+				DB8BD76E22D713A10013A0FF /* Model */,
 			);
 			path = Business;
 			sourceTree = "<group>";
@@ -153,6 +165,42 @@
 				DB7F3E1622D490D10035B647 /* Info.plist */,
 			);
 			path = HomepwnerUITests;
+			sourceTree = "<group>";
+		};
+		DB8BD76E22D713A10013A0FF /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				DB500ADA22D4974000DAF434 /* BNRItem.h */,
+				DB500ADE22D4974000DAF434 /* BNRItem.m */,
+				DB500ADB22D4974000DAF434 /* BNRItemStore.h */,
+				DB500ADC22D4974000DAF434 /* BNRItemStore.m */,
+				DB8BD77722D74FA40013A0FF /* BNRImageStore.h */,
+				DB8BD77822D74FA40013A0FF /* BNRImageStore.m */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		DB8BD76F22D713B00013A0FF /* View */ = {
+			isa = PBXGroup;
+			children = (
+				DB500AE522D5E7BC00DAF434 /* HeaderView.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		DB8BD77022D713BA0013A0FF /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				DB500ADD22D4974000DAF434 /* BNRItemsViewController.h */,
+				DB500ADF22D4974000DAF434 /* BNRItemsViewController.m */,
+				DB500AEA22D61B6C00DAF434 /* BNRDetailViewController.h */,
+				DB500AEB22D61B6C00DAF434 /* BNRDetailViewController.m */,
+				DB500AEC22D61B6C00DAF434 /* BNRDetailViewController.xib */,
+				DB8BD77122D7287B0013A0FF /* BNRDatePickerViewController.h */,
+				DB8BD77222D7287B0013A0FF /* BNRDatePickerViewController.m */,
+				DB8BD77322D7287B0013A0FF /* BNRDatePickerViewController.xib */,
+			);
+			path = Controller;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -262,6 +310,9 @@
 				DB7F3DFD22D490D10035B647 /* LaunchScreen.storyboard in Resources */,
 				DB7F3DFA22D490D10035B647 /* Assets.xcassets in Resources */,
 				DB7F3DF822D490CF0035B647 /* Main.storyboard in Resources */,
+				DB500AE622D5E7BC00DAF434 /* HeaderView.xib in Resources */,
+				DB500AEE22D61B6C00DAF434 /* BNRDetailViewController.xib in Resources */,
+				DB8BD77522D7287B0013A0FF /* BNRDatePickerViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -288,8 +339,11 @@
 			files = (
 				DB500AE222D4974000DAF434 /* BNRItemsViewController.m in Sources */,
 				DB7F3DF522D490CF0035B647 /* ViewController.m in Sources */,
+				DB8BD77922D74FA40013A0FF /* BNRImageStore.m in Sources */,
 				DB7F3E0022D490D10035B647 /* main.m in Sources */,
+				DB500AED22D61B6C00DAF434 /* BNRDetailViewController.m in Sources */,
 				DB500AE122D4974000DAF434 /* BNRItem.m in Sources */,
+				DB8BD77422D7287B0013A0FF /* BNRDatePickerViewController.m in Sources */,
 				DB7F3DF222D490CF0035B647 /* AppDelegate.m in Sources */,
 				DB500AE022D4974000DAF434 /* BNRItemStore.m in Sources */,
 			);
